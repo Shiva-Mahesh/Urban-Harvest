@@ -25,15 +25,18 @@
                 </div>
     
                 <form class="d-flex search-bar">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-success btn-md" style="background-color:#F8A055;color:black;font-family:transat, sans-serif;
+                    <input class="form-control me-2 search-input" id = "search-input" type="search" placeholder="Search" aria-label="Search">
+                    <div id="dropdown-results" class="dropdown-content"></div>
+                    <!-- <button class="btn btn-success btn-md" style="background-color:#F8A055;color:black;font-family:transat, sans-serif;
                     font-weight: 500;
-                    font-style: normal;" type="submit">Search</button>
+                    font-style: normal;" type="submit">Search</button> -->
+                    <button class = "btn btn-success btn-lg search-btn">Search</button>
+
                 </form>
     
                 <div class="d-flex gap-3">
                     <a class="nav-link" href="login.html"><img src="images/login1.png">Login</a>
-                    <a class="nav-link" href="cart.html"><img src="images/cart1.png">Cart</a>
+                    <a class="nav-link" href="shoppingcart.html"><img src="images/cart1.png"><span id="card-count" class="cart-count">0</span></a>
                 </div>
 
                 
@@ -61,17 +64,324 @@
         </div>
     </nav>
 
+    <div class="splash-modal" id="splashModal">
+        <div class="splash-content">
+            <span class="close-btn" onclick="closeSplash()">X</span>
+            <img src="images/logo.png" alt="Urban Harvest Logo">
+            <h2 class="splash-title">Discover fresh.</h2> <h2 class="splash-title"> Shop Smart. Save time.</h2>
+            <div class = "row">
+                <div class = "col">
+                    <p>Sign up for 10% off</p>
+                    <input type="email" class="form-control mb-2" placeholder="Enter email">
+                    <div class = "splash-controls">
+                        <button class = "btn btn-success btn-lg">Sign up</button>
+                        <a href="#" onclick="closeSplash()" class="text-white">No thanks</a>
+                    </div>
+                </div>
+                <div class = "col">
+                    <img class = "splash-image" src = "images/splash.jpeg" style="width:100%; height:100%; object-fit: cover; border:2px solid greenyellow;">
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
     <main>
         <section class="hero">
             <div class="hero-container">
                 <h1 class = "mb-0 text-center ms-auto">Farm Fresh to Your Doorstep</h1>
                 <p class = "mb-0 text-center ms-auto">Support local farmers while earning rewards for every sustainable choice you make!</p>
-                <button class = "btn btn-success btn-lg">Shop Now</button>
+                <a href="shop.html" class = "btn btn-success btn-lg">Shop Now<a>
             </div>
         </section>
+
+        <section class="products">
+            <h1>This Week’s Harvest</h1>
+            <div class="product-list row">
+                <div class="product col-3">
+                    <img src="images/apples.jpeg" alt="Fresh Apples">
+                    <h3>Fresh Apples</h3>
+                    <p>Sweet and crispy apples straight from the farm.</p>
+                    <p><strong>Carbon Credit: 5</strong></p>
+                    <button class = "btn btn-success btn-lg" onclick="addToCart('Apples')">Add to Cart</button>
+                </div>
+                <div class="product col-3">
+                    <img src="images/carrots.jpeg" alt="Organic Carrots">
+                    <h3>Organic Carrots</h3>
+                    <p>Packed with nutrients and farm fresh!</p>
+                    <p><strong>Carbon Credit: 3</strong></p>
+                    <button class ="btn btn-success btn-lg" onclick="addToCart('Carrots')">Add to Cart</button>
+                </div>
+                <div class="product col-3">
+                    <img src="images/oranges.jpeg" alt="Juicy Oranges">
+                    <h3>Juicy Oranges</h3>
+                    <p>Perfectly ripened for your enjoyment.</p>
+                    <p><strong>Carbon Credit: 4</strong></p>
+                    <button class ="btn btn-success btn-lg" onclick="addToCart('Oranges')">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+        
+        <div class="behind-the-scene">
+            
+                <h1 style = "margin-top:20px;">Behind the Scene</h1>
+                <p> Journey of our produce picked fresh from farm field to your table.</p>
+                <div class="behind-the-scene-container row">
+                
+                
+                    <div class="farm col-3">
+                        <img src="images/farm1.jpeg" class = "img-fluid rounded-circle" alt="Farm 1">
+                        <h3> Picked at the peak of perfection</h3>
+                        
+                        <!-- <img src = "images/gardening.png" style = "width:40%; height:40%">  -->
+                    </div>
+                    <div class="farm col-3">
+                        <img src="images/farm2.jpeg" class = "img-fluid rounded-circle" alt="Farm 2">
+                        <h3> On the road to your table</h3>
+                        <!-- <img src = "images/tractor.png" style = "width:40%; height:40%">  -->
+                    </div>
+                    <div class="farm col-3">
+                        <img src="images/farm3.jpeg" class = "img-fluid rounded-circle" alt="Farm 3">
+                        <h3> Packed with purpose, sorted with precision</h3>
+                        <!-- <img src = "images/vegetables.png" style = "width:40%; height:40%">  -->
+                    </div>
+                    <div class="farm col-3">
+                        <img src="images/farm4.jpeg" class = "img-fluid rounded-circle" alt="Farm 4">
+                        <h3> Delivered Fresh. Just for You!</h3>
+                        <!-- <img src = "images/delivery.png" style = "width:40%; height:40%">  -->
+                    </div>
+                    <!-- <div class = "behind-scene-icon"></div> -->
+               </div>
+               <!-- <div><img src = "images/bs1.png" class = "back-scene-icon"> </div> -->
+               <div><img src = "images/bs2.png" class = "back-scene-icon"> </div>
+        </div>
+
+        <div class ="shop-now">
+            <div class="shop-now-title">
+                <!-- <img src = "images/grocery-unscreen.gif" style ="width:10%; height:10%;"> -->
+            <h1 style="font-size: 3em; font-weight: bolder;"> Shop Now</h1>
+            <!-- <img src = "images/shopping-cart.png" style ="width:20%; height:20%;"> -->
+            <!-- <img src = "images/grocery-unscreen.gif" style ="width:10%; height:10%;"> -->
+            </div>
+            <p style="text-align: center;">Browse our selection of fresh vegetables, fruits and produce boxes</p>
+            <div class = "category-list row">
+                <div class="category1 col-3">
+                    
+                    <a href = "shop.html?category=Fruits">Fruits</a>
+                </div>
+                <div class="category2 col-3">
+                    
+                    <a href = "shop.html?category=Vegetables">Vegetables</a>
+                </div>
+                <div class="category3 col-3">
+                    
+                    <a href = "shop.html?category=Curated Box">Produce Boxes</a>  
+                </div>
+                
+            </div>        
+        </div>
+
+        <div class = "sustainable row">
+            <div class = "sus-left col-6">
+                <img src = "images/sustainability.jpeg">
+            </div>
+
+            <div class = "col-5">
+                <h1 style = "color:green;"> Our Pledge to a Greener Future </h1>
+                <p> At Urban Harvest, we are committed to eco-friendly sourcing, reducing waste, and empowering you to make sustainable choices every day.</p>
+                <div class = "sus1 row">
+                    <div class = "col-2"><img src = "images/transport-unscreen.gif" style = "width:100%; height:100%"> </div>
+                    <div class = "col-10">
+                    <h3>Eco-Friendly Sourcing</h3>
+                    <p> Locally grown, reducing transportation emissions. <a href ="#"> Learn More.</a></p>
+                </div>
+                </div>
+                <div class = "sus1 row">
+                    <div class = "col-2"><img src = "images/money-unscreen.gif" style = "width:100%; height:100%"> </div>
+                    <div class = "col-10">
+                    <h3>Carbon Credits</h3>
+                    <p> Earn rewards while saving the planet.  <a href ="#"> Learn More.</a></p>
+                </div>
+                </div>
+                <div class = "sus1 row">
+                    <div class = "col-2"><img src = "images/box-unscreen.gif" style = "width:100%; height:100%"> </div>
+                    <div class = "col-10">
+                    <h3>Sustainable Packaging</h3>
+                    <p> Completely biodegradable and zero-waste materials.  <a href ="#"> Learn More.</a></p>
+                </div>
+                </div>
+            </div>
+
+            <div class = "green-planet row">
+                <div class ="green-planet-text col-7">
+                    <h1> Every purchase you make contributes to a greener planet.
+                     Together, we've collectively reduced 15,876 kg of carbon emissions and supported 28 local farms in embracing eco-friendly practices. </h1>
+                    <div class = "buttom-row">
+                        <img src = "images/grocery-1--unscreen.gif" style = "width:20%; height:20%">
+                    <button class = "btn btn-success btn-lg">Shop Sustainably Now</button>
+                </div>
+                </div>
+
+                <div class ="green-planet-image col-5">
+                    <img src = "images/green-planet.jpeg">
+                </div>
+    
+            </div>
+
+        <div class = "testimonial">
+            <div class = "row" style = "margin-bottom: 0px; padding-bottom: 0px;">
+                <div class="background-wrapper col-6 left-blob">
+                    <div class = "section-one">
+                        <img src="images/person1.jpeg" alt="Person" class="profile-pic">
+                        <h2 class = "section-header">Incredible freshness and quality!</h2>
+                        <!-- <p class="testimonial-text">"This is an amazing product! Highly recommend it."</p>
+                         <p class="name">- John Doe</p> -->
+                    </div>
+                    <div class = "section-two">
+                        <!-- <img src="images/person1.jpeg" alt="Person" class="profile-pic">
+                        <h2>John Doe</h2> -->
+                        <p class="testimonial-text">"I love knowing that my fruits and veggies come straight from local farms. The carbon credit system is such a unique touch - it makes me feel like I'm making a difference every time I shop!"</p>
+                         <p class="name">- Emily R.,</p>
+                    </div>
+                </div>
+
+                <div class="background-wrapper col-6 right-blob ms-auto">
+                    <div class = "section-three">
+                        <img src="images/person2.jpeg" alt="Person" class="profile-pic">
+                        <h2 class = "section-header">Perfectly ripe, delivered every time!</h2>
+                        <!-- <p class="testimonial-text">"This is an amazing product! Highly recommend it."</p>
+                         <p class="name">- John Doe</p> -->
+                    </div>
+                    <div class = "section-four">
+                        <!-- <img src="images/person.jpeg" alt="Person" class="profile-pic">
+                        <h2>John Doe</h2> -->
+                        <p class="testimonial-text">"Urban Harvest never disappoints. From farm to my table, the process feels transaprent and trustworthy. The sustainability pledge gives me pride in being part of a greener community."</p>
+                         <p class="name">- James P.,</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <h1 class ="section-title"> What people say..</h1>
+
+
+            <div class = "row" style = "margin-top:0px; padding-top: 0px;">
+                <div class="background-wrapper col-6 left-blob">
+                    <div class = "section-one">
+                        <img src="images/person4.jpeg" alt="Person" class="profile-pic">
+                        <h2 class = "section-header">Freshness delivered to my doorstep!!</h2>
+                        <!-- <p class="testimonial-text">"This is an amazing product! Highly recommend it."</p>
+                         <p class="name">- John Doe</p> -->
+                    </div>
+                    <div class = "section-two">
+                        <!-- <img src="images/person1.jpeg" alt="Person" class="profile-pic">
+                        <h2>John Doe</h2> -->
+                        <p class="testimonial-text">"Urban Harvest has completely changed the way I shop for groceries! The produce is always fresh, and the convenience of doorstep delivery saves me so much time. Highly recommend!"</p>
+                         <p class="name">- Amit Verma.,</p>
+                    </div>
+                </div>
+
+                <div class="background-wrapper col-6 right-blob ms-auto">
+                    <div class = "section-three">
+                        <img src="images/person3.jpeg" alt="Person" class="profile-pic">
+                        <h2 class = "section-header">Better for my health and the planet!</h2>
+                        <!-- <p class="testimonial-text">"This is an amazing product! Highly recommend it."</p>
+                         <p class="name">- John Doe</p> -->
+                    </div>
+                    <div class = "section-four">
+                        <!-- <img src="images/person.jpeg" alt="Person" class="profile-pic">
+                        <h2>John Doe</h2> -->
+                        <p class="testimonial-text">"I switched to Urban Harvest because I wanted to make healthier food choices. The added bonus? Their eco-conscious efforts and rewards program make me feel like I'm doing my part for the environment too!!"</p>
+                         <p class="name">- Samantha K.,</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>  
+
+        <div class = "promotions1 row">
+                <div class = "left-pic col-6">
+                    <img src = "images/promotion1.jpeg">
+                </div>
+                <div class = "right-text col-6">
+                    <h1> Make an impact today!!</h1>
+                    <button class = "btn btn-success btn-lg">Look at the Promotions!</button>
+                </div>
+            
+        </div>
+
     </main>
     
+
+
+    <footer class="footer">
+      
+            <div class="row">
+    
+               
+                <div class="col-md-3">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="Urban Harvest Logo">
+                    </div>
+                    <div class="footer-logo-text">
+                    <p>
+                        Discover fresh, high-quality vegetables and fruits, fresh from the farm to your doorstep. 
+                        Enjoy convenient shopping and competitive prices. Eat fresh, live healthy!
+                    </p>
+                </div>
+                </div>
+            
+                <div class="subscribe col-md-3">
+                    <h5>Sign up to get the latest specials and exclusive deals!</h5>
+                    <input type="email" placeholder="Email Address*" aria-label="Email Address">
+                    <button class="btn btn-success btn-lg">Sign Up</button>
+                </div>
+
+                <div class="col-md-2">
+                    <h5 class="footer-header">More Info</h5>
+                            <p><a href="shop.html" class="text-white">Products</a></p>
+                            <p><a href="about.html" class="text-white">About Us</a></p>
+                            <p><a href="sustainability.html" class="text-white">Sustainability</a></p>
+                            <p><a href="rewards.html" class="text-white">Carbon Credits</a></p>
+                </div>
+
+                <div class="col-md-2">
+                    <h5 class="footer-header">Let's Connect</h5>
+                            <div class="social-icons">
+                                <a href="#"><img src = "images/facebook.png"></a>
+                                <a href="#"><img src = "images/pinterest.png"></a>
+                            </div>
+                            <div class="social-icons">
+                                <a href="#"><img src = "images/youtube.png"></a>
+                                <a href="#"><img src = "images/instagram.png"></a>
+                            </div>
+                </div>
+
+                <div class="col-md-2">
+                    <h5 class="footer-header"><a href = 'contact.html'>Contact Us </a></h5>
+                <p>1234 Victoria Street <br> Kitchener, ON N2B 3E6</p>
+                <p>526.731.3838</p>
+                <p>info@urbanharvest.com</p>
+                </div>
+
+        </div>
+
+        <hr>
+
+        <div class="footer-bottom">
+            <p>&copy; 2022-2025. All rights reserved</p>
+        </div>
+    </div>
+
+
+
+
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script src="search.js"></script>
+    <script src="splash.js"></script>
+    <script src="cart.js"> </script>
     </body>
     </html>
     

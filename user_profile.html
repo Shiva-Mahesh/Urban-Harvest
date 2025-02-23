@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Harvest - User Profile</title>
+</head>
+<link rel = "stylesheet" href = "style.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://use.typekit.net/sfi7vlm.css">
+<body>
+
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid navbar-container">
+    
+           
+            <div class="navbar-top">
+                <div class="logo-container">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="images/logo.png" alt="Brand Logo">
+                    </a>
+                </div>
+    
+                <form class="d-flex search-bar">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <!-- <button class="btn btn-success btn-md" style="background-color:#F8A055;color:black;font-family:transat, sans-serif;
+                    font-weight: 500;
+                    font-style: normal;" type="submit">Search</button> -->
+                    <button class = "btn btn-success btn-lg search-btn">Search</button>
+                </form>
+    
+                <div class="d-flex gap-3">
+                    <a class="nav-link" href="login.html"><img src="images/login1.png">Login</a>
+                    <a class="nav-link" href="shoppingcart.html"><img src="images/cart1.png">Cart</a>
+                </div>
+
+                
+                </div>
+            </div>
+    
+            
+            <div class="navbar-bottom">
+                <ul class="navbar-nav d-flex flex-row">
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="shop.html">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="promotions.html">Promotions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="rewards.html">Rewards</a>
+                    </li>
+                </ul>
+            </div>
+    
+        </div>
+    </nav>
+    <main>
+
+        <div class="container">
+            <div class="profile-container">
+                <h2 id="userName">John Doe</h2>
+                <p id="userEmail">johndoe@example.com</p>
+                <p id="userPhone">+123 456 7890</p>
+                <p id="userAddress">123 Green Street, New York</p>
+                <button class = "btn btn-success btn-lg" id = "edit-btn" onclick="editProfile()">Edit Profile</button>
+            </div>
+
+            <div class="edit-form mt-3" id="editForm">
+                <h3>Edit Profile</h3>
+                <input type="text" id="editName" class="form-control mb-2" value="John Doe">
+                <input type="email" id="editEmail" class="form-control mb-2" value="johndoe@example.com">
+                <input type="text" id="editPhone" class="form-control mb-2" value="+123456789">
+                <input type="text" id="editAddress" class="form-control mb-2" value="123 Street, City, Country">
+                <button class = "btn btn-success btn-lg" id = "save-btn" onclick="saveProfile()">Save</button>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="footer">
+      
+        <div class="row">
+
+           
+            <div class="col-md-3">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="Urban Harvest Logo">
+                </div>
+                <div class="footer-logo-text">
+                <p>
+                    Discover fresh, high-quality vegetables and fruits, fresh from the farm to your doorstep. 
+                    Enjoy convenient shopping and competitive prices. Eat fresh, live healthy!
+                </p>
+            </div>
+            </div>
+        
+            <div class="subscribe col-md-3">
+                <h5>Sign up to get the latest specials and exclusive deals!</h5>
+                <input type="email" placeholder="Email Address*" aria-label="Email Address">
+                <button class="btn btn-success btn-lg">Sign Up</button>
+            </div>
+
+            <div class="col-md-2">
+                <h5 class="footer-header">More Info</h5>
+                        <p><a href="shop.html" class="text-white">Products</a></p>
+                        <p><a href="about.html" class="text-white">About Us</a></p>
+                        <p><a href="sustainability.html" class="text-white">Sustainability</a></p>
+                        <p><a href="rewards.html" class="text-white">Carbon Credits</a></p>
+            </div>
+
+            <div class="col-md-2">
+                <h5 class="footer-header">Let's Connect</h5>
+                        <div class="social-icons">
+                            <a href="#"><img src = "images/facebook.png"></a>
+                            <a href="#"><img src = "images/pinterest.png"></a>
+                        </div>
+                        <div class="social-icons">
+                            <a href="#"><img src = "images/youtube.png"></a>
+                            <a href="#"><img src = "images/instagram.png"></a>
+                        </div>
+            </div>
+
+            <div class="col-md-2">
+                <h5 class="footer-header"><a href = 'contact.html'>Contact Us </a></h5>
+            <p>1234 Victoria Street <br> Kitchener, ON N2B 3E6</p>
+            <p>526.731.3838</p>
+            <p>info@urbanharvest.com</p>
+            </div>
+
+    </div>
+
+    <hr>
+
+    <div class="footer-bottom">
+        <p>&copy; 2022-2025. All rights reserved</p>
+    </div>
+</div>
+
+
+
+
+</footer>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "name": "Fruits",
+        "image": "images/fruits.jpeg"
+        
+    },
+    {
+        "id": 2,
+        "name": "Vegetables",
+        "image": "images/vegetables.jpeg"
+    },
+    {
+        "id": 3,
+        "name": "Produce Boxes",
+        "image": "images/produce.jpeg"
+    }
+]
