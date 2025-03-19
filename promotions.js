@@ -49,15 +49,12 @@ function renderProduce(produceData) {
     farmText.classList.add("card-text");
     farmText.textContent = `${item.farm ? item.farm : "N/A"}`;
 
-    // Ensure item.price is treated as a number (in case it's a string or undefined)
-    const price = parseFloat(item.price);
-    if (!isNaN(price)) {
-     // Create the price element and assign the produce-price class
+  
     const priceText = document.createElement("p");
     priceText.classList.add("produce-price");
-    priceText.textContent = `$${item.price.toFixed(2)}`;
+    priceText.textContent = `$${item.price}`;
 
-    }
+    // }
 
     // Create the discount element and assign the produce-discount class
     const priceDiscount = document.createElement("p");
