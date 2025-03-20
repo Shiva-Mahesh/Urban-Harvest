@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h2>Welcome, <span id="username"></span></h2>
+    <p>Your email: <span id="useremail"></span></p>
+    <button onclick="logout()">Logout</button>
+
+    <script>
+        async function checkSession() {
+            const response = await fetch("http://localhost/capstone/Urban Harvest/api/check_session.php");
+            const result = await response.json();
+
+            if (result.success) {
+                document.getElementById("username").textContent = result.user.first_name;
+                document.getElementById("useremail").textContent = result.user.email;
+            } else {
+                alert("You are not logged in!");
+                window.location.href = "login.html"; // Redirect to login
+            }
+        }
+
+        function logout() {
+            fetch("http://localhost/capstone/Urban Harvest/api/logout.php")
+                .then(response => response.json())
+                .then(() => {
+                    sessionStorage.removeItem("user"); // Remove session storage
+                    window.location.href = "login.html"; // Redirect to login
+                });
+        }
+
+        // Check if user is logged in
+        checkSession();
+    </script>
+</body>
+</html>

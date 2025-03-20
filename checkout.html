@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Harvest - Check Out Page</title>
+</head>
+<link rel = "stylesheet" href = "style.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://use.typekit.net/sfi7vlm.css">
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid navbar-container">
+    
+           
+            <div class="navbar-top">
+                <div class="logo-container">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="images/logo.png" alt="Brand Logo">
+                    </a>
+                </div>
+    
+                <form class="d-flex search-bar">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <!-- <button class="btn btn-success btn-md" style="background-color:#F8A055;color:black;font-family:transat, sans-serif;
+                    font-weight: 500;
+                    font-style: normal;" type="submit">Search</button> -->
+                    <button class = "btn btn-success btn-lg search-btn">Search</button>
+                </form>
+    
+                <div class="d-flex gap-3">
+                    <a class="nav-link" href="login.html"><img src="images/login1.png">Login</a>
+                    <a class="nav-link" href="shoppingcart.html"><img src="images/cart1.png">Cart</a>
+                </div>
+
+                
+                </div>
+            </div>
+    
+            
+            <div class="navbar-bottom">
+                <ul class="navbar-nav d-flex flex-row">
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="shop.html">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="promotions.html">Promotions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="rewards.html">Rewards</a>
+                    </li>
+                </ul>
+            </div>
+    
+        </div>
+    </nav>
+
+    <main>
+    
+
+    <div class = "checkout_container">
+        <div class = "row">
+            <div class = "col-md-7 delivery_info">
+                <div class="delivery-text">
+                    <p> Returning Customer? <a href = "login.html"> Login Here.</a></p>
+                </div>
+                <h2>Delivery Information</h2>
+                <form>
+                    <div class="mb-3 delivery-cust-name">
+                        <input class="form-control" type="text" placeholder="First Name" required>
+                        <input class="form-control" type="text" placeholder="Last Name" required>
+                    </div>
+
+                    <div class="mb-3 delivery-cust-contact">
+                        <input class="form-control" type="email" placeholder="Email" required>
+                        <input class="form-control" type="tel" placeholder="Phone number" required>
+                    </div>
+
+                    <div class="mb-3 delivery-cust-address">
+                            <label class="form-label">Address</label>
+                       
+                            <input type="text" class="form-control" placeholder="Street Address" required> <br>
+                            <div class = "address-1">
+                                <input type="text" class="form-control" placeholder="Apt/Suite # (optional)" required> <br>
+                                <input type="text" class="form-control" placeholder="City" required> <br>
+                            </div> <br>
+                         
+                            <div class = "address-2">
+                          
+                                <select id="province" class="form-control" name="province" class="form-select">
+                                    <option value="">Select Province</option>
+                                    <option value="Alberta">Alberta</option>
+                                    <option value="British Columbia">British Columbia</option>
+                                    <option value="Manitoba">Manitoba</option>
+                                    <option value="New Brunswick">New Brunswick</option>
+                                    <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+                                    <option value="Northwest Territories">Northwest Territories</option>
+                                    <option value="Nova Scotia">Nova Scotia</option>
+                                    <option value="Nunavut">Nunavut</option>
+                                    <option value="Ontario">Ontario</option>
+                                    <option value="Prince Edward Island">Prince Edward Island</option>
+                                </select> <br>
+                                <input type="text" class="form-control" placeholder="Zip/Postal Code" required> <br>
+                            </div>
+                    </div>
+
+                    <div class="mb-3 delivery-time">
+                        <label>Preferred Delivery Time:  </label>
+                        <select class = "form-control" name="delivery_time" id="delivery_time">
+                            <option value="morning">Morning (9 AM - 12 PM)</option>
+                            <option value="afternoon">Afternoon (12 PM - 5 PM)</option>
+                            <option value="evening">Evening (5 PM - 8 PM)</option>
+                        </select>
+                    </div>
+                </form>
+                <div class="delivery-text">
+                    <p>By clicking complete order, you agree to the <b style="color:orange">Terms and Conditions</b> for the storage of your data.</p>
+                </div>
+            </div>
+
+             
+            
+            <div class="col-md-3 payment_info">
+                <h2 style="text-align: center;">Your Order</h2>  
+                <table class="table table-striped">
+                    
+                    <tbody>
+                        <tr>
+                            <td>Subtotal</td>
+                            
+                            <td name = "subtotal">$31.18</td>
+                        </tr>
+                        <tr>
+                            <td>Rewards</td>
+                            
+                            <td name="reward_score" style="color:green;">-$2.18</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td name="discount_total">$29.00</td>"
+                        </tr>
+                        <tr>
+                            <td>Delivery Fee</td>
+                            
+                            <td name="delivery_fee">$3.00</td>
+                        </tr>
+                        <tr>
+                            <td>Taxes</td>
+                            
+                            <td name="tax">$4.05</td>
+                        </tr>
+                        <tr>
+                            <td>Total</td>
+                            
+                            <td name="final_total">$36.05</td>
+                        </tr>
+                        <!-- <tr>
+                            <td colspan="2" class="text-right">Total:</td>
+                            <td>$7.50</td>
+                        </tr> -->
+                    </tbody>
+                    
+
+                </table>
+                
+               
+                <h4>Credit/Debit Card</h4>
+                <div class = "card-pics">
+                    <img src="images/card111.png" alt="Visa">
+                    <img src="images/card2111.png" alt="MasterCard">
+                    <img src="images/card3111.png" alt="American Express">
+                    <img src="images/card4111.png" alt="Discover">
+                    
+                </div>
+
+                <label>Preferred Payment Method</label>
+                <select name="payment_method" id="payment_method">
+                    <option value="card">Credit/Debit Card</option>
+                    <option value="upi">UPI</option>
+                    <option value="cod">Cash on Delivery</option>
+                </select>
+
+
+                
+                <div id="card-details" class="card-details">
+                    <form>
+
+                        <div class="mb-3">
+                            <label class="form-label">Card Number</label>
+                            <input class="form-control" type="text" placeholder="XXXX XXXX XXXX XXXX" required>
+                        </div>
+
+                        <div class="mb-3">
+                             <label class="form-label">Expiration Date</label>
+                            <input class="form-control" type="text" placeholder="MM/YY" required>
+                            <label class="form-label">CVV</label>
+                            <input class="form-control" type="text" placeholder="CVV" required>
+                        
+                        </div>
+                    
+                    
+                        <div class="mb-3">
+                            <label class="form-label">Name on Card</label>
+                            <input class="form-control" type="text" placeholder="Enter your name on the card" required>
+                        </div>
+                    
+                                      
+                        <button class = "btn btn-success btn-lg complete-order">Complete Order</button>
+
+                    </form>
+                </div>
+
+            </div>
+            <div class="col-md-1">
+
+            </div>
+                
+                
+        </div>
+
+    </div>
+        <!-- <div class="checkout-container">
+            <h2>Checkout</h2>
+            
+            <div class="checkout-form">
+                <form>
+                    <h3>Billing Details</h3>
+                    <label>Full Name</label>
+                    <input type="text" placeholder="Enter your full name" required>
+                    
+                    <label>Email</label>
+                    <input type="email" placeholder="Enter your email" required>
+                    
+                    <label>Phone</label>
+                    <input type="tel" placeholder="Enter your phone number" required>
+                    
+                    <label>Shipping Address</label>
+                    <input type="text" placeholder="Street Address" required>
+                    <input type="text" placeholder="City" required>
+                    <input type="text" placeholder="State" required>
+                    <input type="text" placeholder="Zip Code" required>
+                    
+                    <h3>Payment Method</h3>
+                    <label>
+                        <input type="radio" name="payment" value="card" checked> Credit/Debit Card
+                    </label>
+                    <label>
+                        <input type="radio" name="payment" value="upi"> UPI
+                    </label>
+                    <label>
+                        <input type="radio" name="payment" value="cod"> Cash on Delivery
+                    </label>
+                    
+                    <div id="card-details">
+                        <label>Card Number</label>
+                        <input type="text" placeholder="XXXX XXXX XXXX XXXX" required>
+                        
+                        <label>Expiry Date</label>
+                        <input type="text" placeholder="MM/YY" required>
+                        
+                        <label>CVV</label>
+                        <input type="text" placeholder="XXX" required>
+                    </div>
+                    
+                    <h3>Apply Promo Code</h3>
+                    <input type="text" placeholder="Enter promo code">
+                    <button type="button">Apply</button>
+                    
+                    <button type="submit" class="place-order">Place Order</button>
+                </form>
+            </div>
+            
+            <div class="order-summary">
+                <h3>Order Summary</h3>
+                <p>Items Total: <span>$50.00</span></p>
+                <p>Shipping: <span>$5.00</span></p>
+                <p>Discount: <span>-$5.00</span></p>
+                <h3>Total: <span>$50.00</span></h3>
+            </div>
+        </div>
+     -->
+
+    </main>
+
+    <footer class="footer">
+      
+        <div class="row">
+
+           
+            <div class="col-md-3">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="Urban Harvest Logo">
+                </div>
+                <div class="footer-logo-text">
+                <p>
+                    Discover fresh, high-quality vegetables and fruits, fresh from the farm to your doorstep. 
+                    Enjoy convenient shopping and competitive prices. Eat fresh, live healthy!
+                </p>
+            </div>
+            </div>
+        
+            <div class="subscribe col-md-3">
+                <h5>Sign up to get the latest specials and exclusive deals!</h5>
+                <input type="email" placeholder="Email Address*" aria-label="Email Address">
+                <button class="btn btn-success btn-lg">Sign Up</button>
+            </div>
+
+            <div class="col-md-2">
+                <h5 class="footer-header">More Info</h5>
+                        <p><a href="shop.html" class="text-white">Products</a></p>
+                        <p><a href="about.html" class="text-white">About Us</a></p>
+                        <p><a href="sustainability.html" class="text-white">Sustainability</a></p>
+                        <p><a href="rewards.html" class="text-white">Carbon Credits</a></p>
+            </div>
+
+            <div class="col-md-2">
+                <h5 class="footer-header">Let's Connect</h5>
+                        <div class="social-icons">
+                            <a href="#"><img src = "images/facebook.png"></a>
+                            <a href="#"><img src = "images/pinterest.png"></a>
+                        </div>
+                        <div class="social-icons">
+                            <a href="#"><img src = "images/youtube.png"></a>
+                            <a href="#"><img src = "images/instagram.png"></a>
+                        </div>
+            </div>
+
+            <div class="col-md-2">
+                <h5 class="footer-header"><a href = 'contact.html'>Contact Us </a></h5>
+            <p>1234 Victoria Street <br> Kitchener, ON N2B 3E6</p>
+            <p>526.731.3838</p>
+            <p>info@urbanharvest.com</p>
+            </div>
+
+    </div>
+
+    <hr>
+
+    <div class="footer-bottom">
+        <p>&copy; 2022-2025. All rights reserved</p>
+    </div>
+</div>
+
+
+
+
+</footer>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

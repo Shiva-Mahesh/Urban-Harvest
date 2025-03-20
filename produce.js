@@ -1,7 +1,8 @@
 // Fetch and render the produce from the JSON file
 async function fetchProduceData() {
     try {
-      const response = await fetch("produce.json");
+      // const response = await fetch("produce.json");
+      const response = await fetch("/api/produce.php"); // Fetch data from backend
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
