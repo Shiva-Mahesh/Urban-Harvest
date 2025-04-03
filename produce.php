@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 
 $category = isset($_GET['category']) ? $conn->real_escape_string($_GET['category']) : "All";
 
-$sql = "SELECT produce_name, produce_farm, produce_price, produce_quantity, produce_carbonCredit, produce_image, produce_category FROM produce";
+$sql = "SELECT * FROM produce";
 if ($category !== "All") {
     $sql .= " WHERE produce_category = '$category'";
 }

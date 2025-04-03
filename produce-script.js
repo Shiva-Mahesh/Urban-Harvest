@@ -1,3 +1,8 @@
+let cartTotal = 0;
+let cartItems = [];
+
+
+
 // Fetch and render the produce from the PHP endpoint (fetch_products.php)
 async function fetchProduceData() {
   try {
@@ -124,14 +129,169 @@ function filterProduce(category) {
     .catch((error) => console.error("Error fetching filtered data:", error));
 }
 
-// Event listener for category selection (e.g., dropdown filter)
+
+
+function loadCart() {
+  var storedTotal = localStorage.getItem('cartTotal');
+  var storedItems = localStorage.getItem('cartItems');
+
+  if (!storedTotal || !storedItems){
+      storedTotal = 0;
+      storedItems = [];
+      localStorage.setItem('cartTotal', 0);
+      localStorage.setItem('cartItems', JSON.stringify(storedItems));
+  }    
+}
+
+
+//ADD TO CART FUNCTIONALITY
+
+
+// Add an item to the cart when the "Add to Cart" button is clicked
+
+function addToCart(event) {
+  const button = event.target;
+  const produceCard = button.closest('.card');
+  const priceElement = produceCard.querySelector('.produce-price');
+  const price = parseFloat(priceElement.innerText);
+  const title = produceCard.querySelector('.card-title').innerText;
+  const image = produceCard.querySelector('.card-img-top').src;
+
+  var cartTotal = parseFloat(localStorage.getItem('cartTotal'));
+  const cartItems = JSON.parse(localStorage.getItem('cartItems')); 
+  
+  cartTotal += price;
+  cartItems.push({ title, price,image });
+
+  localStorage.setItem('cartTotal', cartTotal.toFixed(2));
+  localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  //document.getElementById('cart-total').innerText = cartTotal.toFixed(2);
+  alert("Item added successfully");
+}
+
+
+window.onload = function() {
+
+
+
+  // Event listener for category selection (e.g., dropdown filter)
 document
-  .getElementById("category-select")
-  .addEventListener("change", function (event) {
-    const selectedCategory = event.target.value;
-    console.log("Category selected:", selectedCategory); // Debugging line
-    filterProduce(selectedCategory); // Call filter function when category changes
-  });
+.getElementById("category-select")
+.addEventListener("change", function (event) {
+  const selectedCategory = event.target.value;
+  console.log("Category selected:", selectedCategory); // Debugging line
+  filterProduce(selectedCategory); // Call filter function when category changes
+});
 
 // Initial fetch and render
 fetchProduceData();
+loadCart();
+
+const buttons = document.querySelectorAll('.add-to-cart-btn');
+    buttons.forEach(button => {
+        button.addEventListener('click', addToCart);
+    });
+
+  //Shopping Cart functionality
+  const cartItemsContainer = document.getElementById("cart-items");
+  const subtotalElement = document.getElementById("subtotal");
+  const taxElement = document.getElementById("tax");
+  const totalElement = document.getElementById("total");
+
+  // Example cart data (replace with data from localStorage or backend)
+
+  var subtotal = parseFloat(localStorage.getItem('cartTotal'));
+  const cart = JSON.parse(localStorage.getItem('cartItems'));
+  // let cart = [
+  //     {
+  //       id: 1,
+  //       name: "Tomato",
+  //       price: 2.5,
+  //       image: "images/Tomato.jpg",
+  //       quantity: 2,
+  //     },
+  //     {
+  //       id: 2,
+  //       name: "Blueberries",
+  //       price: 5.0,
+  //       image: "images/Blueberries.jpg",
+  //       quantity: 1,
+  //     },
+  //   ];
+
+    function renderCart() {
+      cartItemsContainer.innerHTML = "";
+      // let subtotal = 0;
+  
+      cart.forEach((item) => {
+        const cartItem = document.createElement("div");
+        cartItem.className = "cart-item";
+  
+        const itemTotal = item.price * item.quantity;
+        subtotal += itemTotal;
+  
+        cartItem.innerHTML = `
+          <img src="${item.image}" alt="${item.name}">
+          <div class="cart-item-details">
+            <h4>${item.name}</h4>
+            <p>Price: $${item.price.toFixed(2)}</p>
+            <div class="cart-item-controls">
+              <input type="number" value="${item.quantity}" min="1" data-id="${item.id}">
+              <button class="remove-item" data-id="${item.id}">Remove</button>
+            </div>
+          </div>
+          <p>$${itemTotal.toFixed(2)}</p>
+        `;
+  
+        cartItemsContainer.appendChild(cartItem);
+      });
+  
+      // Calculate totals
+      const tax = subtotal * 0.1; // 10% tax
+      const total = subtotal + tax;
+  
+      subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+      taxElement.textContent = `$${tax.toFixed(2)}`;
+      totalElement.textContent = `$${total.toFixed(2)}`;
+    }
+  
+    // Event listener for quantity changes
+    cartItemsContainer.addEventListener("change", function (event) {
+      if (event.target.tagName === "INPUT") {
+        const itemId = parseInt(event.target.getAttribute("data-id"));
+        const newQuantity = parseInt(event.target.value);
+  
+        const item = cart.find((item) => item.id === itemId);
+        if (item) {
+          item.quantity = newQuantity;
+          renderCart();
+        }
+      }
+    });
+  
+    // Event listener for remove item
+    cartItemsContainer.addEventListener("click", function (event) {
+      if (event.target.classList.contains("remove-item")) {
+        const itemId = parseInt(event.target.getAttribute("data-id"));
+        cart = cart.filter((item) => item.id !== itemId);
+        renderCart();
+      }
+    });
+  
+    // Initial render
+    renderCart();
+
+    
+};
+
+
+
+
+
+
+
+
+
+
+
+

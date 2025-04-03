@@ -1,3 +1,4 @@
+<?php include 'header.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,56 +10,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://use.typekit.net/sfi7vlm.css">
 <body>
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid navbar-container">
     
-           
-            <div class="navbar-top">
-                <div class="logo-container">
-                    <a class="navbar-brand" href="index.html">
-                        <img src="images/logo.png" alt="Brand Logo">
-                    </a>
-                </div>
-    
-                <form class="d-flex search-bar">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <!-- <button class="btn btn-success btn-md" style="background-color:#F8A055;color:black;font-family:transat, sans-serif;
-                    font-weight: 500;
-                    font-style: normal;" type="submit">Search</button> -->
-                    <button class = "btn btn-success btn-lg search-btn">Search</button>
-
-                </form>
-    
-                <div class="d-flex gap-3">
-                    <a class="nav-link" href="login.html"><img src="images/login1.png">Login</a>
-                    <a class="nav-link" href="shoppingcart.html"><img src="images/cart1.png">Cart</a>
-                </div>
-
-                
-                </div>
-            </div>
-    
-            
-            <div class="navbar-bottom">
-                <ul class="navbar-nav d-flex flex-row">
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="shop.html">Shop</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="promotions.html">Promotions</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="rewards.html">Rewards</a>
-                    </li>
-                </ul>
-            </div>
-    
-        </div>
-    </nav>
-
     <main>
 
         <section class="our_mission">
@@ -185,10 +137,10 @@
 
             <div class="col-md-2">
                 <h5 class="footer-header">More Info</h5>
-                        <p><a href="shop.html" class="text-white">Products</a></p>
-                        <p><a href="about.html" class="text-white">About Us</a></p>
-                        <p><a href="sustainability.html" class="text-white">Sustainability</a></p>
-                        <p><a href="rewards.html" class="text-white">Carbon Credits</a></p>
+                <p><a href="shop.php" class="text-white">Products</a></p>
+                            <p><a href="about.php" class="text-white">About Us</a></p>
+                            <p><a href="sustainability.php" class="text-white">Sustainability</a></p>
+                            <p><a href="rewards.php" class="text-white">Carbon Credits</a></p>
             </div>
 
             <div class="col-md-2">
@@ -224,6 +176,6 @@
 
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="script.js"></script>
+<!-- <script src="script.js"></script> -->
 </body>
 </html>

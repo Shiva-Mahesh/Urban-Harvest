@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (result.success) {
                 alert('Registration successful!');
                 console.log('Registration successful');
-                window.location.href = 'success.html'; 
+                window.location.href = 'index_new.php'; 
                 
             } else {
                 alert(`Error: ${result.message}`);
@@ -36,4 +36,8 @@ document.addEventListener("DOMContentLoaded", () => {
             alert('An error occurred while registering.');
         }
     });
+
+    function clearForm(){
+        form.reset();
+    }
 });

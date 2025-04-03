@@ -19,26 +19,29 @@ window.onload = function() {
     const totalElement = document.getElementById("total");
 
     // Example cart data (replace with data from localStorage or backend)
-    let cart = [
-        {
-          id: 1,
-          name: "Tomato",
-          price: 2.5,
-          image: "images/Tomato.jpg",
-          quantity: 2,
-        },
-        {
-          id: 2,
-          name: "Blueberries",
-          price: 5.0,
-          image: "images/Blueberries.jpg",
-          quantity: 1,
-        },
-      ];
+
+    var subtotal = parseFloat(localStorage.getItem('cartTotal'));
+    const cart = JSON.parse(localStorage.getItem('cartItems'));
+    // let cart = [
+    //     {
+    //       id: 1,
+    //       name: "Tomato",
+    //       price: 2.5,
+    //       image: "images/Tomato.jpg",
+    //       quantity: 2,
+    //     },
+    //     {
+    //       id: 2,
+    //       name: "Blueberries",
+    //       price: 5.0,
+    //       image: "images/Blueberries.jpg",
+    //       quantity: 1,
+    //     },
+    //   ];
 
       function renderCart() {
         cartItemsContainer.innerHTML = "";
-        let subtotal = 0;
+        // let subtotal = 0;
     
         cart.forEach((item) => {
           const cartItem = document.createElement("div");

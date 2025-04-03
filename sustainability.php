@@ -1,3 +1,4 @@
+<?php include 'header.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,55 +12,6 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 
 <body>
-
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid navbar-container">
-    
-           
-            <div class="navbar-top">
-                <div class="logo-container">
-                    <a class="navbar-brand" href="index.html">
-                        <img src="images/logo.png" alt="Brand Logo">
-                    </a>
-                </div>
-    
-                <form class="d-flex search-bar">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <!-- <button class="btn btn-success btn-md" style="background-color:#F8A055;color:black;font-family:transat, sans-serif;
-                    font-weight: 500;
-                    font-style: normal;" type="submit">Search</button> -->
-                    <button class = "btn btn-success btn-lg search-btn">Search</button>
-                </form>
-    
-                <div class="d-flex gap-3">
-                    <a class="nav-link" href="login.html"><img src="images/login1.png">Login</a>
-                    <a class="nav-link" href="shoppingcart.html"><img src="images/cart1.png">Cart</a>
-                </div>
-
-                
-                </div>
-            </div>
-    
-            
-            <div class="navbar-bottom">
-                <ul class="navbar-nav d-flex flex-row">
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="shop.html">Shop</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="promotions.html">Promotions</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="rewards.html">Rewards</a>
-                    </li>
-                </ul>
-            </div>
-    
-        </div>
-    </nav>
 
     <main>
         <header class="hero_sus">
@@ -110,7 +62,7 @@
         <section class="cta">
             <h2>Join Our Sustainability Movement!</h2>
             <p>Make eco-conscious choices and support a greener planet.</p>
-            <a href="join-us.html" class="btn btn-light btn-lg mt-3">Get Involved</a>
+            <a href="new_user.php" class="btn btn-light btn-lg mt-3">Get Involved</a>
         </section>
 
     </main>
@@ -143,10 +95,10 @@
 
             <div class="col-md-2">
                 <h5 class="footer-header">More Info</h5>
-                        <p><a href="shop.html" class="text-white">Products</a></p>
-                        <p><a href="about.html" class="text-white">About Us</a></p>
-                        <p><a href="sustainability.html" class="text-white">Sustainability</a></p>
-                        <p><a href="rewards.html" class="text-white">Carbon Credits</a></p>
+                <p><a href="shop.php" class="text-white">Products</a></p>
+                            <p><a href="about.php" class="text-white">About Us</a></p>
+                            <p><a href="sustainability.php" class="text-white">Sustainability</a></p>
+                            <p><a href="rewards.php" class="text-white">Carbon Credits</a></p>
             </div>
 
             <div class="col-md-2">

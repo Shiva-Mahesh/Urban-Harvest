@@ -90,9 +90,10 @@ function renderProduce(produceData) {
     const addButton = document.createElement("button");
     addButton.classList.add("add-to-cart-btn-promotions");
     addButton.textContent = "+Add";
+    addButton.addEventListener("click", () => addToCart(item));
 
     // Add item data as a data attribute (we'll pass the item object when the button is clicked)
-    addButton.dataset.item = JSON.stringify(item);
+    
 
     // Change text on hover
     addButton.addEventListener("mouseover", () => {
@@ -111,6 +112,21 @@ function renderProduce(produceData) {
   });
 }
 
-
+function addToCart(item) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let cartCount = localStorage.getItem("cartCount") || 0;
+  cartCount = parseInt(cartCount) + 1;
+  const existingItem = cart.find(cartItem => cartItem.produce_name === item.produce_name);
+  if (existingItem) {
+      existingItem.quantity += 1;
+  } else {
+      item.quantity = 1;
+      cart.push(item);
+  }
+  localStorage.setItem("cart", JSON.stringify(cart));
+  localStorage.setItem("cartCount", cartCount);
+  updateCartCount(cartCount);
+  alert("Added to cart!");
+}
 // Initial fetch and render
 fetchPromotionsData();

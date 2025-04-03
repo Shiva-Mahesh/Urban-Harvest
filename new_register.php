@@ -53,12 +53,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("ssssssssss", $first_name, $last_name, $phone, $email, $password, $street_address, $apt_no, $city, $province, $postal_code);
 
     if ($stmt->execute()) {
-        // echo json_encode(["success" => "User registered successfully"]);
+        echo json_encode(["success" => "User registered successfully"]);
         $_SESSION['user'] = [
             'name' => $first_name . ' ' . $last_name,
             'email' => $email
         ];
-        header("Location:success.html");
+        
         exit();
     } else {
         echo json_encode(["error" => "Error: " . $stmt->error]);

@@ -1,3 +1,46 @@
+<?php include 'header.php'; 
+$host = "localhost"; 
+$user = "harvestAdminNew";
+$password = "urbanharvest";
+$database = "urbanharvest";
+
+$conn = new mysqli($host, $user, $password, $database);
+
+if ($conn->connect_error) {
+    die(json_encode(["error" => "Connection failed: " . $conn->connect_error]));
+}
+
+
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+    $query = "SELECT first_name, last_name, phone, email, street_address, apt_no, city, province, postal_code FROM users WHERE email = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $user_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user_data = $result->fetch_assoc();
+    $stmt->close();
+} else {
+    $user_data = [
+        'first_name' => '',
+        'last_name' => '',
+        'phone' => '',
+        'email' => '',
+        'street_address' => '',
+        'apt_no' => '',
+        'city' => '',
+        'province' => '',
+        'postal_code' => '',
+    ];
+}
+
+
+
+
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,54 +52,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://use.typekit.net/sfi7vlm.css">
 <body>
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid navbar-container">
-    
-           
-            <div class="navbar-top">
-                <div class="logo-container">
-                    <a class="navbar-brand" href="index.html">
-                        <img src="images/logo.png" alt="Brand Logo">
-                    </a>
-                </div>
-    
-                <form class="d-flex search-bar">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <!-- <button class="btn btn-success btn-md" style="background-color:#F8A055;color:black;font-family:transat, sans-serif;
-                    font-weight: 500;
-                    font-style: normal;" type="submit">Search</button> -->
-                    <button class = "btn btn-success btn-lg search-btn">Search</button>
-                </form>
-    
-                <div class="d-flex gap-3">
-                    <a class="nav-link" href="login.html"><img src="images/login1.png">Login</a>
-                    <a class="nav-link" href="shoppingcart.html"><img src="images/cart1.png">Cart</a>
-                </div>
-
-                
-                </div>
-            </div>
-    
-            
-            <div class="navbar-bottom">
-                <ul class="navbar-nav d-flex flex-row">
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="shop.html">Shop</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="promotions.html">Promotions</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="rewards.html">Rewards</a>
-                    </li>
-                </ul>
-            </div>
-    
-        </div>
-    </nav>
+ 
 
     <main>
     
@@ -64,35 +60,35 @@
     <div class = "checkout_container">
         <div class = "row">
             <div class = "col-md-7 delivery_info">
-                <div class="delivery-text">
+                <!-- <div class="delivery-text">
                     <p> Returning Customer? <a href = "login.html"> Login Here.</a></p>
-                </div>
+                </div> -->
                 <h2>Delivery Information</h2>
                 <form>
                     <div class="mb-3 delivery-cust-name">
-                        <input class="form-control" type="text" placeholder="First Name" required>
-                        <input class="form-control" type="text" placeholder="Last Name" required>
+                        <input class="form-control" type="text" placeholder="First Name" required value="<?php echo htmlspecialchars($user_data['first_name']); ?>">
+                        <input class="form-control" type="text" placeholder="Last Name" required value="<?php echo htmlspecialchars($user_data['last_name']); ?>">
                     </div>
 
                     <div class="mb-3 delivery-cust-contact">
-                        <input class="form-control" type="email" placeholder="Email" required>
-                        <input class="form-control" type="tel" placeholder="Phone number" required>
+                        <input class="form-control" type="email" placeholder="Email" required value="<?php echo htmlspecialchars($user_data['email']); ?>">
+                        <input class="form-control" type="tel" placeholder="Phone number" required value="<?php echo htmlspecialchars($user_data['phone']); ?>">
                     </div>
 
                     <div class="mb-3 delivery-cust-address">
                             <label class="form-label">Address</label>
                        
-                            <input type="text" class="form-control" placeholder="Street Address" required> <br>
+                            <input type="text" class="form-control" placeholder="Street Address" required value="<?php echo htmlspecialchars($user_data['street_address']); ?>"> <br>
                             <div class = "address-1">
-                                <input type="text" class="form-control" placeholder="Apt/Suite # (optional)" required> <br>
-                                <input type="text" class="form-control" placeholder="City" required> <br>
+                                <input type="text" class="form-control" placeholder="Apt/Suite # (optional)" required value="<?php echo htmlspecialchars($user_data['apt_no']); ?>"> <br>
+                                <input type="text" class="form-control" placeholder="City" required value="<?php echo htmlspecialchars($user_data['city']); ?>"> <br>
                             </div> <br>
                          
                             <div class = "address-2">
                           
                                 <select id="province" class="form-control" name="province" class="form-select">
                                     <option value="">Select Province</option>
-                                    <option value="Alberta">Alberta</option>
+                                    <option value="Alberta" <?php if ($user_data['province'] == "Alberta") echo "selected"; ?>>Alberta</option>
                                     <option value="British Columbia">British Columbia</option>
                                     <option value="Manitoba">Manitoba</option>
                                     <option value="New Brunswick">New Brunswick</option>
@@ -100,10 +96,10 @@
                                     <option value="Northwest Territories">Northwest Territories</option>
                                     <option value="Nova Scotia">Nova Scotia</option>
                                     <option value="Nunavut">Nunavut</option>
-                                    <option value="Ontario">Ontario</option>
+                                    <option value="Ontario" <?php if ($user_data['province'] == "Ontario") echo "selected"; ?>>Ontario</option>
                                     <option value="Prince Edward Island">Prince Edward Island</option>
                                 </select> <br>
-                                <input type="text" class="form-control" placeholder="Zip/Postal Code" required> <br>
+                                <input type="text" class="form-control" placeholder="Zip/Postal Code" required value="<?php echo htmlspecialchars($user_data['postal_code']); ?>"> <br>
                             </div>
                     </div>
 
@@ -125,37 +121,38 @@
             
             <div class="col-md-3 payment_info">
                 <h2 style="text-align: center;">Your Order</h2>  
+                
                 <table class="table table-striped">
                     
                     <tbody>
                         <tr>
                             <td>Subtotal</td>
                             
-                            <td name = "subtotal">$31.18</td>
+                            <td id = "subtotal"> </td>
                         </tr>
                         <tr>
-                            <td>Rewards</td>
+                            <td>Reward points</td>
                             
-                            <td name="reward_score" style="color:green;">-$2.18</td>
+                            <td id="reward_score" style="color:green;"> </td>
                         </tr>
                         <tr>
-                            <td></td>
-                            <td name="discount_total">$29.00</td>"
+                            <td>Reward Discount</td>
+                            <td id="reward_discount" style="color:green;"> </td>
                         </tr>
                         <tr>
-                            <td>Delivery Fee</td>
+                            <td>Promotional discount</td>
                             
-                            <td name="delivery_fee">$3.00</td>
+                            <td id="promo_discount" style="color:green;"> </td>
                         </tr>
                         <tr>
                             <td>Taxes</td>
                             
-                            <td name="tax">$4.05</td>
+                            <td id="tax"> </td>
                         </tr>
                         <tr>
                             <td>Total</td>
                             
-                            <td name="final_total">$36.05</td>
+                            <td id="final_total"> </td>
                         </tr>
                         <!-- <tr>
                             <td colspan="2" class="text-right">Total:</td>
@@ -310,10 +307,10 @@
 
             <div class="col-md-2">
                 <h5 class="footer-header">More Info</h5>
-                        <p><a href="shop.html" class="text-white">Products</a></p>
-                        <p><a href="about.html" class="text-white">About Us</a></p>
-                        <p><a href="sustainability.html" class="text-white">Sustainability</a></p>
-                        <p><a href="rewards.html" class="text-white">Carbon Credits</a></p>
+                <p><a href="shop.php" class="text-white">Products</a></p>
+                            <p><a href="about.php" class="text-white">About Us</a></p>
+                            <p><a href="sustainability.php" class="text-white">Sustainability</a></p>
+                            <p><a href="rewards.php" class="text-white">Carbon Credits</a></p>
             </div>
 
             <div class="col-md-2">
@@ -351,6 +348,6 @@
 
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+    <script src="checkout.js"></script>
 </body>
 </html>

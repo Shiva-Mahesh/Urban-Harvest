@@ -1,3 +1,5 @@
+<?php include 'header.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,74 +14,25 @@
 
    
     
-    
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid navbar-container">
-    
-           
-            <div class="navbar-top">
-                <div class="logo-container">
-                    <a class="navbar-brand" href="index.html">
-                        <img src="images/logo.png" alt="Brand Logo">
-                    </a>
-                </div>
-    
-                <form class="d-flex search-bar">
-                    <input class="form-control me-2 search-input" id = "search-input" type="search" placeholder="Search" aria-label="Search">
-                    <div id="dropdown-results" class="dropdown-content"></div>
-                    <!-- <button class="btn btn-success btn-md" style="background-color:#F8A055;color:black;font-family:transat, sans-serif;
-                    font-weight: 500;
-                    font-style: normal;" type="submit">Search</button> -->
-                    <button class = "btn btn-success btn-lg search-btn">Search</button>
-
-                </form>
-    
-                <div class="d-flex gap-3">
-                    <a class="nav-link" href="login.html"><img src="images/login1.png">Login</a>
-                    <a class="nav-link" href="shoppingcart.html"><img src="images/cart1.png"><span id="card-count" class="cart-count">0</span></a>
-                </div>
-
-                
-                </div>
-            </div>
-    
-            
-            <div class="navbar-bottom">
-                <ul class="navbar-nav d-flex flex-row">
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="shop.html">Shop</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="promotions.html">Promotions</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="rewards.html">Rewards</a>
-                    </li>
-                </ul>
-            </div>
-    
-        </div>
-    </nav>
-
     <div class="splash-modal" id="splashModal">
         <div class="splash-content">
             <span class="close-btn" onclick="closeSplash()">X</span>
             <img src="images/logo.png" alt="Urban Harvest Logo">
             <h2 class="splash-title">Discover fresh.</h2> <h2 class="splash-title"> Shop Smart. Save time.</h2>
             <div class = "row">
-                <div class = "col">
+                <!-- <div class = "col">
                     <p>Sign up for 10% off</p>
                     <input type="email" class="form-control mb-2" placeholder="Enter email">
                     <div class = "splash-controls">
                         <button class = "btn btn-success btn-lg">Sign up</button>
                         <a href="#" onclick="closeSplash()" class="text-white">No thanks</a>
                     </div>
+                </div> -->
+                <div class = "col">
+                    <img src = "images/splash.jpeg" style="width:100%; height:100%; object-fit: cover; border:2px solid greenyellow;">
                 </div>
                 <div class = "col">
-                    <img class = "splash-image" src = "images/splash.jpeg" style="width:100%; height:100%; object-fit: cover; border:2px solid greenyellow;">
+                    <img class = "splash-image" src = "images/splash_anim.gif">
                 </div>
             </div>
             
@@ -103,21 +56,21 @@
                     <h3>Fresh Apples</h3>
                     <p>Sweet and crispy apples straight from the farm.</p>
                     <p><strong>Carbon Credit: 5</strong></p>
-                    <button class = "btn btn-success btn-lg" onclick="addToCart('Apples')">Add to Cart</button>
+                    <!-- <button class = "btn btn-success btn-lg" onclick="addToCart('Apples')">Add to Cart</button> -->
                 </div>
                 <div class="product col-3">
                     <img src="images/carrots.jpeg" alt="Organic Carrots">
                     <h3>Organic Carrots</h3>
                     <p>Packed with nutrients and farm fresh!</p>
                     <p><strong>Carbon Credit: 3</strong></p>
-                    <button class ="btn btn-success btn-lg" onclick="addToCart('Carrots')">Add to Cart</button>
+                    <!-- <button class ="btn btn-success btn-lg" onclick="addToCart('Carrots')">Add to Cart</button> -->
                 </div>
                 <div class="product col-3">
                     <img src="images/oranges.jpeg" alt="Juicy Oranges">
                     <h3>Juicy Oranges</h3>
                     <p>Perfectly ripened for your enjoyment.</p>
                     <p><strong>Carbon Credit: 4</strong></p>
-                    <button class ="btn btn-success btn-lg" onclick="addToCart('Oranges')">Add to Cart</button>
+                    <!-- <button class ="btn btn-success btn-lg" onclick="addToCart('Oranges')">Add to Cart</button> -->
                 </div>
             </div>
         </section>
@@ -167,15 +120,15 @@
             <div class = "category-list row">
                 <div class="category1 col-3">
                     
-                    <a href = "shop.html?category=Fruits">Fruits</a>
+                    <a href = "shop.php?category=Fruits">Fruits</a>
                 </div>
                 <div class="category2 col-3">
                     
-                    <a href = "shop.html?category=Vegetables">Vegetables</a>
+                    <a href = "shop.php?category=Vegetables">Vegetables</a>
                 </div>
                 <div class="category3 col-3">
                     
-                    <a href = "shop.html?category=Curated Box">Produce Boxes</a>  
+                    <a href = "shop.php?category=Curated Box">Produce Boxes</a>  
                 </div>
                 
             </div>        
@@ -193,21 +146,21 @@
                     <div class = "col-2"><img src = "images/transport-unscreen.gif" style = "width:100%; height:100%"> </div>
                     <div class = "col-10">
                     <h3>Eco-Friendly Sourcing</h3>
-                    <p> Locally grown, reducing transportation emissions. <a href ="#"> Learn More.</a></p>
+                    <p> Locally grown, reducing transportation emissions. <a href ="sustainability.php"> Learn More.</a></p>
                 </div>
                 </div>
                 <div class = "sus1 row">
                     <div class = "col-2"><img src = "images/money-unscreen.gif" style = "width:100%; height:100%"> </div>
                     <div class = "col-10">
                     <h3>Carbon Credits</h3>
-                    <p> Earn rewards while saving the planet.  <a href ="#"> Learn More.</a></p>
+                    <p> Earn rewards while saving the planet.  <a href ="rewards.php"> Learn More.</a></p>
                 </div>
                 </div>
                 <div class = "sus1 row">
                     <div class = "col-2"><img src = "images/box-unscreen.gif" style = "width:100%; height:100%"> </div>
                     <div class = "col-10">
                     <h3>Sustainable Packaging</h3>
-                    <p> Completely biodegradable and zero-waste materials.  <a href ="#"> Learn More.</a></p>
+                    <p> Completely biodegradable and zero-waste materials.  <a href ="shop.php"> Start Shopping!</a></p>
                 </div>
                 </div>
             </div>
@@ -218,7 +171,7 @@
                      Together, we've collectively reduced 15,876 kg of carbon emissions and supported 28 local farms in embracing eco-friendly practices. </h1>
                     <div class = "buttom-row">
                         <img src = "images/grocery-1--unscreen.gif" style = "width:20%; height:20%">
-                    <button class = "btn btn-success btn-lg">Shop Sustainably Now</button>
+                    <a href="shop.php"><button class = "btn btn-success btn-lg">Shop Sustainably Now</button></a>
                 </div>
                 </div>
 
@@ -305,7 +258,7 @@
                 </div>
                 <div class = "right-text col-6">
                     <h1> Make an impact today!!</h1>
-                    <button class = "btn btn-success btn-lg">Look at the Promotions!</button>
+                    <a href="promotions.php">  <button class = "btn btn-success btn-sm">Look at the Promotions!</button> </a>
                 </div>
             
         </div>
@@ -333,16 +286,33 @@
             
                 <div class="subscribe col-md-3">
                     <h5>Sign up to get the latest specials and exclusive deals!</h5>
-                    <input type="email" placeholder="Email Address*" aria-label="Email Address">
-                    <button class="btn btn-success btn-lg">Sign Up</button>
+                    <form id="newsletterForm">
+                    <input type="email" id="newsletter_email" placeholder="Email Address*" aria-label="Email Address">
+                    <button type="submit" class="btn btn-success btn-lg">Sign Up</button> </form>
                 </div>
+
+                <script>
+                    document.getElementById('newsletterForm').addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    let email = document.getElementById('newsletter_email').value;
+
+                    fetch('subscribe.php', {
+                      method: 'POST',
+                     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                     body: 'email=' + encodeURIComponent(email)
+                        })
+                .then(response => response.text())
+                .then(data => alert(data))
+                 .catch(error => console.error('Error:', error));
+                });
+            </script>
 
                 <div class="col-md-2">
                     <h5 class="footer-header">More Info</h5>
-                            <p><a href="shop.html" class="text-white">Products</a></p>
-                            <p><a href="about.html" class="text-white">About Us</a></p>
-                            <p><a href="sustainability.html" class="text-white">Sustainability</a></p>
-                            <p><a href="rewards.html" class="text-white">Carbon Credits</a></p>
+                            <p><a href="shop.php" class="text-white">Products</a></p>
+                            <p><a href="about.php" class="text-white">About Us</a></p>
+                            <p><a href="sustainability.php" class="text-white">Sustainability</a></p>
+                            <p><a href="rewards.php" class="text-white">Carbon Credits</a></p>
                 </div>
 
                 <div class="col-md-2">
@@ -378,10 +348,10 @@
 
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
-    <script src="search.js"></script>
+    <!-- <script src="script.js"></script> -->
+    <!-- <script src="search.js"></script> -->
     <script src="splash.js"></script>
-    <script src="cart.js"> </script>
+    <!-- <script src="cart.js"> </script> -->
     </body>
     </html>
     
